@@ -1,0 +1,41 @@
+{
+  "name": "web-audio-analyser",
+  "version": "0.0.0",
+  "description": "A thin wrapper around the Web Audio API that takes an <audio> element and gives you its waveform/frequency data in return.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm start",
+    "start": "beefy demo.js:bundle.js --live -- -t brfs",
+    "prepublish": "browserify -t brfs demo.js > bundle.js"
+  },
+  "author": "Hugh Kennedy <hughskennedy@gmail.com> (http://hughskennedy.com/)",
+  "license": "MIT",
+  "devDependencies": {
+    "gl-matrix": "~2.0.0",
+    "game-shell-orbit-camera": "0.0.0",
+    "gl-vao": "0.0.2",
+    "gl-buffer": "~0.1.1",
+    "gl-shader": "0.0.6",
+    "gl-now": "0.0.4",
+    "brfs": "~0.0.8",
+    "soundcloud-badge": "0.0.0"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hughsk/web-audio-analyser.git"
+  },
+  "keywords": [
+    "audio",
+    "web",
+    "api",
+    "browserify",
+    "analysis",
+    "fft",
+    "waveform",
+    "reactive"
+  ],
+  "bugs": {
+    "url": "https://github.com/hughsk/web-audio-analyser/issues"
+  }
+}
