@@ -1,7 +1,7 @@
 # web-audio-analyser [![experimental](http://hughsk.github.io/stability-badges/dist/experimental.svg)](http://github.com/hughsk/stability-badges) #
 
-A thin wrapper around the Web Audio API that takes an `<audio>` element and
-gives you its waveform/frequency data in return.
+A thin wrapper around the Web Audio API that lets you take some audio and get
+its waveform/frequency data in return.
 
 [![web-audio-analyser](https://nodei.co/npm/web-audio-analyser.png?mini=true)](https://nodei.co/npm/web-audio-analyser)
 
@@ -9,8 +9,16 @@ gives you its waveform/frequency data in return.
 
 #### `analyser = require('web-audio-analyser')(audio[, ctx])` ####
 
-Takes an `<audio>` element as its first argument - optionally, you can pass
-your own `AudioContext` instance too.
+Takes some form of `audio` as the first argument. This may be one of the
+following:
+
+* An `<audio>` element.
+* A `MediaStream` object created by calling `getUserMedia`.
+* Any kind of `AudioSourceNode`.
+
+Optionally, you can pass in your own `AudioContext` instance too. **Note** there
+may only be one instance of this per page, and if not supplied one will be
+created for you.
 
 #### `analyser.waveform([ui8array])` ####
 

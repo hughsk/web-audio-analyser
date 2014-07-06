@@ -5,13 +5,18 @@ module.exports = WebAudioAnalyser
 function WebAudioAnalyser(audio, ctx) {
   if (!(this instanceof WebAudioAnalyser)) return new WebAudioAnalyser(audio, ctx)
 
-  this.audio = audio
   this.ctx = ctx = ctx || new AudioContext
 
-  this.source = ctx.createMediaElementSource(audio)
+  if (!(audio instanceof AudioNode)) {
+    audio = audio instanceof Audio
+      ? ctx.createMediaElementSource(audio)
+      : ctx.createMediaStreamSource(audio)
+  }
+
   this.analyser = ctx.createAnalyser()
   this.wavedata = null
   this.freqdata = null
+  this.source   = audio
 
   this.source.connect(this.analyser)
   this.analyser.connect(ctx.destination)
