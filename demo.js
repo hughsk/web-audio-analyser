@@ -39,7 +39,7 @@ function init() {
   audio.loop = true
   audio.addEventListener('canplay', function() {
     console.log('playing!')
-    analyser = analyse(audio)
+    analyser = analyse(audio, { audible: true, stereo: false })
     audio.play()
   })
 
