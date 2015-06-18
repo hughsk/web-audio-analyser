@@ -3,6 +3,14 @@
 A thin wrapper around the Web Audio API that lets you take some audio and get
 its waveform/frequency data in return.
 
+**Note:** If you are streaming from SoundCloud or a similar API, you may need to set up CORS on your Audio source like so:
+
+```js
+var audio = new Audio()
+audio.crossOrigin = 'Anonymous'
+audio.src = url
+``` 
+
 [![web-audio-analyser](https://nodei.co/npm/web-audio-analyser.png?mini=true)](https://nodei.co/npm/web-audio-analyser)
 
 ## Usage ##

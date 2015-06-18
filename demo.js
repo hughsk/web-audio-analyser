@@ -35,6 +35,7 @@ var gl
 
 function init() {
   var audio  = new Audio
+  audio.crossOrigin = 'Anonymous'
   audio.src = song_url
   audio.loop = true
   audio.addEventListener('canplay', function() {
