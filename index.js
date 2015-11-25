@@ -10,7 +10,7 @@ function WebAudioAnalyser(audio, ctx, opts) {
   this.ctx = ctx = ctx || new AudioContext
 
   if (!(audio instanceof AudioNode)) {
-    audio = audio instanceof Audio
+    audio = (audio instanceof Audio || audio instanceof HTMLAudioElement)
       ? ctx.createMediaElementSource(audio)
       : ctx.createMediaStreamSource(audio)
   }
