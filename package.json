@@ -1,6 +1,6 @@
 {
   "name": "web-audio-analyser",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A thin wrapper around the Web Audio API that lets you take some audio and get its waveform/frequency data in return.",
   "main": "index.js",
   "scripts": {
