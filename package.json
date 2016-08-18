@@ -18,8 +18,7 @@
     "gl-matrix": "~2.0.0",
     "gl-now": "0.0.4",
     "gl-shader": "0.0.6",
-    "gl-vao": "0.0.2",
-    "soundcloud-badge": "0.0.0"
+    "gl-vao": "0.0.2"
   },
   "dependencies": {},
   "repository": {
