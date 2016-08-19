@@ -1,4 +1,4 @@
-var song_url
+var song_url = './audio.mp3'
 
 var fs           = require('fs')
 var analyse      = require('./')
@@ -11,20 +11,10 @@ var glnow        = require('gl-now')
 var mat4         = GLMatrix.mat4
 var shell
 
-require('soundcloud-badge')({
-    client_id: 'ded451c6d8f9ff1c62f72523f49dab68'
-  , song: 'https://soundcloud.com/moon_music/hydrogen'
-  , dark: false
-  , getFonts: true
-}, function(err, src, json, div) {
-  if (err) throw err
-  song_url = src
-
-  shell = glnow({ clearColor: [0, 0, 0, 1] })
-  shell.on('gl-render', render)
-  shell.on('gl-init', init)
-  camera = createCamera(shell)
-})
+shell = glnow({ clearColor: [0, 0, 0, 1] })
+shell.on('gl-render', render)
+shell.on('gl-init', init)
+camera = createCamera(shell)
 
 var lines = new Float32Array(1024 * 3)
 var sides = new Float32Array(1024 * 3)
@@ -35,11 +25,12 @@ var gl
 
 function init() {
   var audio  = new Audio
+  audio.crossOrigin = 'anonymous'
   audio.src = song_url
   audio.loop = true
   audio.addEventListener('canplay', function() {
     console.log('playing!')
-    analyser = analyse(audio)
+    analyser = analyse(audio, { audible: true, stereo: false })
     audio.play()
   })
 
