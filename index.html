@@ -2,8 +2,28 @@
 <html>
   <head>
     <title>web-audio-analyser</title>
+    <style>
+      #clickToStart {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        margin: 0 auto;
+
+        text-align: center;
+        font-size: 3vmax;
+        font-family: sans-serif;
+        color: #fff;
+        z-index: 1;
+      }
+    </style>
   </head>
   <body>
     <script type="text/javascript" src="bundle.js"></script>
+
+    <div id="clickToStart" style="display: none;">
+      CLICK TO START
+    </div>
   </body>
 </html>

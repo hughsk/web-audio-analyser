@@ -39,9 +39,26 @@ function init() {
   audio.src = song_url
   audio.loop = true
   audio.addEventListener('canplay', function() {
-    console.log('playing!')
-    analyser = analyse(audio, { audible: true, stereo: false })
-    audio.play()
+    var text = document.getElementById('clickToStart');
+
+    function playAudio () {
+      var signal = audio.play();
+      return signal && signal
+        .then(function () {
+          analyser = analyse(audio, { audible: true, stereo: false });
+          text.style.display = 'none';
+        })
+        .catch(function () {
+          if (screen.style.display === 'none') {
+            text.style.display = 'block';
+          }
+          setTimeout(function() {
+            playAudio();
+          }, 100);
+        });
+    };
+  
+    playAudio();
   })
 
   gl = shell.gl
